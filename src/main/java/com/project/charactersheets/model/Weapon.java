@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class Weapon {
     protected int weaponId;
+    protected int ownerId;
     protected String weaponName;
     protected int damage;
 
@@ -13,6 +14,13 @@ public class Weapon {
     };
     protected int range;
     protected boolean isRangedWeapon;
-    protected int ownerId;
+    protected boolean isMagicalWeapon;
+
+    protected enum effectType {
+        OFFENSE, SUPPORT
+    }
+
+    protected String effectsDescription;
+
 
 }
