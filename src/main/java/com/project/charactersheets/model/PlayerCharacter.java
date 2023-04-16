@@ -1,8 +1,6 @@
 package com.project.charactersheets.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -31,7 +29,9 @@ public  class PlayerCharacter {
         ROGUE, SORCERER, MONK, WARLOCK
     }
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch =
+            FetchType.EAGER)
+    @JoinColumn(name = "ownerId", referencedColumnName = "pcId")
     @ToString.Exclude
     private List<Weapon> weapons;
 
