@@ -17,7 +17,6 @@ public class PCService {
     }
 
     public Optional<PlayerCharacter> retrieveCharacter(int pcId) {
-        Optional<PlayerCharacter> pc = pcRepository.findById(pcId);
-        return pc;
+        return pcRepository.findById(pcId);
     }
 }
