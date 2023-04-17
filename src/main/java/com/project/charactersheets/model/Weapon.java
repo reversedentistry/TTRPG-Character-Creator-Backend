@@ -9,6 +9,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Weapon {
     @Id

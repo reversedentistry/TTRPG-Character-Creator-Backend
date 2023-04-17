@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Player {
     @Id
