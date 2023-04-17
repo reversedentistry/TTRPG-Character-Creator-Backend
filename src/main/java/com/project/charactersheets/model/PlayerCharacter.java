@@ -2,7 +2,7 @@ package com.project.charactersheets.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.Hibernate;
+
 
 import java.util.List;
 import java.util.Objects;
@@ -14,8 +14,10 @@ import java.util.Objects;
 @Entity
 public  class PlayerCharacter {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int pcId;
     private String pcName;
+    private int player;
     private int level;
     private int hitPoints;
     private int strength;
