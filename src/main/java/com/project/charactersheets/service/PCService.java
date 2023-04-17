@@ -17,6 +17,16 @@ public class PCService {
         return pcRepository.save(pc);
     }
 
+    public boolean deleteCharacter(int pcId) {
+        Optional<PlayerCharacter> pcTbd = pcRepository.findById(pcId);
+        if (pcTbd.isPresent()) {
+            pcRepository.deleteById(pcId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Optional<PlayerCharacter> retrieveCharacter(int pcId) {
         return pcRepository.findById(pcId);
     }
