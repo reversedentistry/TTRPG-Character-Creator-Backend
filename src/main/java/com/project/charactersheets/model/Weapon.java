@@ -1,9 +1,7 @@
 package com.project.charactersheets.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import java.util.Objects;
 
@@ -14,23 +12,24 @@ import java.util.Objects;
 @Entity
 public class Weapon {
     @Id
-    protected int weaponId;
-    protected int ownerId;
-    protected String weaponName;
-    protected int damage;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int weaponId;
+    private int ownerId;
+    private String weaponName;
+    private int damage;
 
-    protected enum damageType {
+    private enum damageType {
         STRENGTH, FINESSE, NONE
     };
-    protected int range;
-    protected boolean isRangedWeapon;
-    protected boolean isMagicalWeapon;
+    private int range;
+    private boolean isRangedWeapon;
+    private boolean isMagicalWeapon;
 
-    protected enum magicEffectType {
+    private enum magicEffectType {
         OFFENSE, SUPPORT
     }
 
-    protected String effectsDescription;
+    private String effectsDescription;
 
     @Override
     public boolean equals(Object o) {
