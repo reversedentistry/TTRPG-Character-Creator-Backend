@@ -18,7 +18,7 @@ public class PCController {
     PCService pcService;
 
     @PostMapping
-    public ResponseEntity<PlayerCharacter> newCharacter(PlayerCharacter playerCharacter) {
+    public ResponseEntity<PlayerCharacter> newCharacter(@RequestBody PlayerCharacter playerCharacter) {
         pcService.createNewCharacter(playerCharacter);
         return ResponseEntity.status(200).body(playerCharacter);
     }

@@ -15,7 +15,7 @@ public class WeaponController {
     WeaponService weaponService;
 
     @PostMapping
-    public ResponseEntity<Weapon> addWeapon(Weapon weapon) {
+    public ResponseEntity<Weapon> addWeapon(@RequestBody Weapon weapon) {
         weaponService.addNewWeapon(weapon);
         return ResponseEntity.status(200).body(weapon);
     }
