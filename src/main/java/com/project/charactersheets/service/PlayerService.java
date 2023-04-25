@@ -15,4 +15,13 @@ public class PlayerService {
     }
 
     //TODO: Login
+    public boolean login(Player player) {
+        Player loginAttempt = playerRepo.findByUsername(player.getUsername());
+        if (loginAttempt != null) {
+            String passwordAttempt = player.getPassword();
+            return passwordAttempt.equals(loginAttempt.getPassword());
+        } else {
+            return false;
+        }
+    }
 }
