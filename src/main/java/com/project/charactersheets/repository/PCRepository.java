@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface PCRepository extends JpaRepository<PlayerCharacter, Long> {
-    List<PlayerCharacter> findAllByPlayer(long player);
+    List<PlayerCharacter> findAllByPlayer(Long player);
 }
