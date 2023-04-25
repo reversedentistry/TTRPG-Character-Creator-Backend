@@ -29,8 +29,8 @@ public class Weapon {
         STRENGTH, FINESSE, NONE
     };
     private int range;
-    private boolean isRangedWeapon;
-    private boolean isMagicalWeapon;
+    private boolean isRanged;
+    private boolean isMagical;
 
     private enum magicEffectType {
         OFFENSE, SUPPORT
@@ -43,7 +43,7 @@ public class Weapon {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Weapon weapon = (Weapon) o;
-        return weaponId == weapon.weaponId && ownerId == weapon.ownerId && damage == weapon.damage && range == weapon.range && isRangedWeapon == weapon.isRangedWeapon && isMagicalWeapon == weapon.isMagicalWeapon && Objects.equals(weaponName, weapon.weaponName) && Objects.equals(effectsDescription, weapon.effectsDescription);
+        return weaponId == weapon.weaponId && ownerId == weapon.ownerId && damage == weapon.damage && range == weapon.range && isRanged == weapon.isRanged && isMagical == weapon.isMagical && Objects.equals(weaponName, weapon.weaponName) && Objects.equals(effectsDescription, weapon.effectsDescription);
     }
 
     @Override
