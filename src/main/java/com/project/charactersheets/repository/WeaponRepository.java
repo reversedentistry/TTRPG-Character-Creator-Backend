@@ -8,6 +8,6 @@ import java.util.List;
 
 
 @Repository
-public interface WeaponRepository extends JpaRepository<Weapon, Integer> {
-    List<Weapon> findAllByOwnerId(int ownerId);
+public interface WeaponRepository extends JpaRepository<Weapon, Long> {
+    List<Weapon> findAllByOwnerId(long ownerId);
 }

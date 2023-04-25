@@ -16,7 +16,7 @@ public class WeaponService {
         return weaponRepo.save(newWeapon);
     }
 
-    public List<Weapon> getCharacterWeapons(int charId) {
+    public List<Weapon> getCharacterWeapons(Long charId) {
         return weaponRepo.findAllByOwnerId(charId);
     }
 }

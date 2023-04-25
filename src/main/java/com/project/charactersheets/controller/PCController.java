@@ -24,7 +24,7 @@ public class PCController {
     }
 
     @GetMapping("/{pcId}")
-    public Optional<PlayerCharacter> getCharacter(@PathVariable int pcId) {
+    public Optional<PlayerCharacter> getCharacter(@PathVariable Long pcId) {
         Optional<PlayerCharacter> pc = pcService.retrieveCharacter(pcId);
         if (pc.isPresent()) {
             return ResponseEntity.status(200).body(pc).getBody();
@@ -35,12 +35,12 @@ public class PCController {
 
     //TODO: Correct this since it heavily overlaps with get request URI above
     @GetMapping("/players/{playerId}")
-    public List<PlayerCharacter> getAllCharactersOfPlayer(@PathVariable int playerId) {
+    public List<PlayerCharacter> getAllCharactersOfPlayer(@PathVariable Long playerId) {
         return pcService.getAllCharactersOfPlayer(playerId);
     }
 
     @DeleteMapping("/{pcId}")
-    public ResponseEntity<String> deleteCharacter(@PathVariable int pcId) {
+    public ResponseEntity<String> deleteCharacter(@PathVariable long pcId) {
         if (pcService.deleteCharacter(pcId)) {
             return ResponseEntity.status(200).body("Player character " +
                     "successfully deleted.");

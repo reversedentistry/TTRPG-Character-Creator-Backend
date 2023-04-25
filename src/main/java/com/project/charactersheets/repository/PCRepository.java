@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PCRepository extends JpaRepository<PlayerCharacter, Integer> {
-    List<PlayerCharacter> findAllByOwnerId(int ownerId);
+public interface PCRepository extends JpaRepository<PlayerCharacter, Long> {
+    List<PlayerCharacter> findAllByPlayer(long player);
 }

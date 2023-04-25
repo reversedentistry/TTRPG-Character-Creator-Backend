@@ -9,13 +9,19 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Weapon {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int weaponId;
-    private int ownerId;
+    private Long weaponId;
+
+    @NonNull
+    @org.springframework.lang.NonNull
+    private Long ownerId;
+    @NonNull
+    @org.springframework.lang.NonNull
     private String weaponName;
     private int damage;
 

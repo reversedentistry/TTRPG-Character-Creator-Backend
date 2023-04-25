@@ -11,14 +11,20 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public  class PlayerCharacter {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int pcId;
+    private Long pcId;
+
+    @NonNull
+    @org.springframework.lang.NonNull
     private String pcName;
-    private int player;
+    @NonNull
+    @org.springframework.lang.NonNull
+    private Long player;
     private int level;
     private int hitPoints;
     private int strength;
@@ -33,7 +39,7 @@ public  class PlayerCharacter {
     }
 
     @OneToMany(cascade = CascadeType.ALL, fetch =
-            FetchType.EAGER)
+            FetchType.LAZY)
     @JoinColumn(name = "ownerId", referencedColumnName = "pcId")
     @ToString.Exclude
     private List<Weapon> weapons;

@@ -14,10 +14,14 @@ import java.util.List;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int playerId;
+    private Long playerId;
+    @NonNull
+    @Column(unique = true)
+    @org.springframework.lang.NonNull
     private String playerName;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "player", referencedColumnName = "playerId")
+    @ToString.Exclude
     private List<PlayerCharacter> characters;
 }

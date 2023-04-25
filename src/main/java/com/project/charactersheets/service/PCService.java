@@ -17,7 +17,7 @@ public class PCService {
         return pcRepository.save(pc);
     }
 
-    public boolean deleteCharacter(int pcId) {
+    public boolean deleteCharacter(Long pcId) {
         Optional<PlayerCharacter> pcTbd = pcRepository.findById(pcId);
         if (pcTbd.isPresent()) {
             pcRepository.deleteById(pcId);
@@ -27,11 +27,11 @@ public class PCService {
         }
     }
 
-    public Optional<PlayerCharacter> retrieveCharacter(int pcId) {
+    public Optional<PlayerCharacter> retrieveCharacter(Long pcId) {
         return pcRepository.findById(pcId);
     }
 
-    public List<PlayerCharacter> getAllCharactersOfPlayer(int playerId) {
-        return pcRepository.findAllByOwnerId(playerId);
+    public List<PlayerCharacter> getAllCharactersOfPlayer(Long playerId) {
+        return pcRepository.findAllByPlayer(playerId);
     }
 }

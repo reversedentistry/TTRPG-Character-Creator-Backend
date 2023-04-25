@@ -21,7 +21,7 @@ public class WeaponController {
     }
 
     @GetMapping("/{pcId}")
-    public List<Weapon> getAllPcWeapons(@PathVariable int pcId) {
+    public List<Weapon> getAllPcWeapons(@PathVariable Long pcId) {
         return weaponService.getCharacterWeapons(pcId);
     }
 }
