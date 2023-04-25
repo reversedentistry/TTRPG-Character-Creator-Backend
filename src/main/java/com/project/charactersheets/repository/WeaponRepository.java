@@ -9,5 +9,9 @@ import java.util.List;
 
 @Repository
 public interface WeaponRepository extends JpaRepository<Weapon, Long> {
-    List<Weapon> findAllByOwnerId(long ownerId);
+    List<Weapon> findAllByOwnerId(Long ownerId);
+    List<Weapon> findAllByIsMagicalTrue();
+    List<Weapon> findAllByIsMagicalFalse();
+    List<Weapon> findAllByIsRangedTrue();
+    List<Weapon> findAllByIsRangedFalse();
 }
