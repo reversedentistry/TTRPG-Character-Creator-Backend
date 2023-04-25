@@ -33,7 +33,6 @@ public class PCController {
         }
     }
 
-    //TODO: Correct this since it heavily overlaps with get request URI above
     @GetMapping("/players/{playerId}")
     public List<PlayerCharacter> getAllCharactersOfPlayer(@PathVariable Long playerId) {
         return pcService.getAllCharactersOfPlayer(playerId);

@@ -14,7 +14,6 @@ public class PlayerService {
         return playerRepo.save(player);
     }
 
-    //TODO: Login
     public boolean login(Player player) {
         Player loginAttempt = playerRepo.findByUsername(player.getUsername());
         if (loginAttempt != null) {
