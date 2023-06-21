@@ -27,6 +27,16 @@ public class PCService {
         }
     }
 
+    public PlayerCharacter updateCharacter(Long pcId, PlayerCharacter pc) {
+        Optional<PlayerCharacter> pcToUpdate = pcRepository.findById(pcId);
+        if (pcToUpdate.isPresent()) {
+            pc.setPcId(pcId);
+            return pcRepository.save(pc);
+        } else {
+            return null;
+        }
+    }
+
     public Optional<PlayerCharacter> retrieveCharacter(Long pcId) {
         return pcRepository.findById(pcId);
     }
