@@ -19,4 +19,13 @@ public class WeaponService {
     public List<Weapon> getCharacterWeapons(Long charId) {
         return weaponRepo.findAllByOwnerId(charId);
     }
+
+    public boolean deleteWeapon(Long weaponId) {
+        if (weaponRepo.findById(weaponId).isPresent()) {
+            weaponRepo.deleteById(weaponId);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
