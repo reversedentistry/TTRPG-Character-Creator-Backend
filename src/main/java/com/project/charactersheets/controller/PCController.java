@@ -2,9 +2,8 @@ package com.project.charactersheets.controller;
 
 import com.project.charactersheets.model.PlayerCharacter;
 import com.project.charactersheets.service.PCService;
-import lombok.Getter;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/pcs")
 public class PCController {
     @Autowired
@@ -24,18 +24,26 @@ public class PCController {
     }
 
     @GetMapping("/{pcId}")
-    public Optional<PlayerCharacter> getCharacter(@PathVariable Long pcId) {
+    public ResponseEntity<PlayerCharacter> getCharacter(@PathVariable Long pcId) {
         Optional<PlayerCharacter> pc = pcService.retrieveCharacter(pcId);
-        if (pc.isPresent()) {
-            return ResponseEntity.status(200).body(pc).getBody();
-        } else {
-            return ResponseEntity.status(400).body(pc).getBody();
-        }
+        return pc.map(playerCharacter -> ResponseEntity.status(200).body(playerCharacter)).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @GetMapping("/players/{playerId}")
     public List<PlayerCharacter> getAllCharactersOfPlayer(@PathVariable Long playerId) {
         return pcService.getAllCharactersOfPlayer(playerId);
+    }
+
+    @PutMapping("/{pcId}")
+    public ResponseEntity<PlayerCharacter> updateCharacter(@PathVariable Long pcId
+            , @RequestBody PlayerCharacter playerCharacter) {
+        if (pcService.updateCharacter(pcId, playerCharacter) != null) {
+            return ResponseEntity.status(200).body(playerCharacter);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+
     }
 
     @DeleteMapping("/{pcId}")
