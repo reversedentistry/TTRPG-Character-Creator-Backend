@@ -14,7 +14,7 @@ import java.util.Objects;
 @Entity
 public class Player {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long playerId;
     @NonNull
     @Column(unique = true)
