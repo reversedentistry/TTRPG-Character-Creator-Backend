@@ -19,7 +19,7 @@ import java.util.Objects;
 public  class PlayerCharacter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pcId;
+    private long pcId;
 
     @NonNull
     @org.springframework.lang.NonNull
@@ -49,7 +49,7 @@ public  class PlayerCharacter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PlayerCharacter that = (PlayerCharacter) o;
-        return level == that.level && hitPoints == that.hitPoints && strength == that.strength && intelligence == that.intelligence && dexterity == that.dexterity && wisdom == that.wisdom && charisma == that.charisma && constitution == that.constitution && pcId.equals(that.pcId) && pcName.equals(that.pcName) && player.equals(that.player) && characterClass == that.characterClass && Objects.equals(weapons, that.weapons);
+        return pcId == that.pcId && level == that.level && hitPoints == that.hitPoints && strength == that.strength && intelligence == that.intelligence && dexterity == that.dexterity && wisdom == that.wisdom && charisma == that.charisma && constitution == that.constitution && pcName.equals(that.pcName) && player.equals(that.player) && characterClass == that.characterClass && Objects.equals(weapons, that.weapons);
     }
 
     @Override
