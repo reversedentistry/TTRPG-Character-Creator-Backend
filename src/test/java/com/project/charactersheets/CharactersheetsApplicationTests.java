@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class CharactersheetsApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void checkToFindAllCharactersByPlayer() {
 	}
 
 }
